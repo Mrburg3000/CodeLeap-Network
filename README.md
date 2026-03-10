@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CodeLeap Network
+
+A simple social network built with **Next.js**, **TypeScript**, and **plain CSS** — no backend or database required. Everything persists via `localStorage`.
+
+---
+
+## Features
+
+- **Create, edit, and delete posts**
+- **Likes** — like/unlike posts with real-time count
+- **Comments** — collapsible comment section per post
+- **Mentions** — detects `@username` in text and highlights it visually
+- **Media attachments** — attach images to posts (base64, 4MB limit)
+- **Sorting and filtering** — newest, oldest, most liked / all posts or only yours
+- **Persistent login/logout** — session saved in `localStorage`
+- **Responsive** — mobile-friendly layout
+
+---
+
+## Tech Stack
+
+- [Next.js 14+](https://nextjs.org/) with App Router
+- TypeScript
+- Plain CSS (no Tailwind or UI libraries)
+- Font: [Roboto](https://fonts.google.com/specimen/Roboto) via Google Fonts
+
+---
 
 ## Getting Started
 
-First, run the development server:
+**Requirements:** Node.js 18+ and npm/yarn/pnpm.
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/your-username/codeleap-network.git
+cd codeleap-network
+
+# 2. Install dependencies
+npm install
+
+# 3. Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Production build
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## How to Use
 
-To learn more about Next.js, take a look at the following resources:
+1. Open the app and enter a username to sign in
+2. Create posts with a title, content, and an optional image
+3. Use `@username` in your text to mention someone
+4. Like posts with the heart button
+5. Click "comments" to expand and add a comment
+6. Use the sort/filter bar to reorder posts or view only yours
+7. Click **Logout** in the header to sign out
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Storage
 
-## Deploy on Vercel
+All data is stored in the browser's `localStorage` under these keys:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Key | Content |
+|---|---|
+| `codeleap_username` | Logged-in username |
+| `codeleap_posts` | Posts array (JSON) |
+| `codeleap_comments` | Comments array (JSON) |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> **Note:** data is local to the browser. Clearing `localStorage` or switching devices will erase everything.
+
+---
+
+## Known Limitations
+
+- Images are stored as base64 — posts with large images may approach the ~5MB `localStorage` limit
+- Data is not shared across devices or between different users
+- Mentions are visual only — there is no real notification system
