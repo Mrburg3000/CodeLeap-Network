@@ -1,85 +1,85 @@
 # CodeLeap Network
 
-Uma rede social simples construída com **Next.js**, **TypeScript** e **CSS puro**, sem backend ou banco de dados — tudo persiste via `localStorage`.
+A simple social network built with **Next.js**, **TypeScript**, and **plain CSS** — no backend or database required. Everything persists via `localStorage`.
 
 ---
 
-## Funcionalidades
+## Features
 
-- **Criar, editar e deletar posts**
-- **Likes** — curtir/descurtir posts, contagem em tempo real
-- **Comentários** — seção colapsável por post
-- **Mentions** — detecta `@username` no texto e destaca visualmente
-- **Anexar imagens** — upload de imagem (base64, limite 4MB) em posts
-- **Ordenação e filtros** — mais recente, mais antigo, mais curtido / todos os posts ou só os seus
-- **Login/logout persistente** — sessão salva no `localStorage`
-- **Responsivo** — layout adaptado para mobile
+- **Create, edit, and delete posts**
+- **Likes** — like/unlike posts with real-time count
+- **Comments** — collapsible comment section per post
+- **Mentions** — detects `@username` in text and highlights it visually
+- **Media attachments** — attach images to posts (base64, 4MB limit)
+- **Sorting and filtering** — newest, oldest, most liked / all posts or only yours
+- **Persistent login/logout** — session saved in `localStorage`
+- **Responsive** — mobile-friendly layout
 
 ---
 
-## Tecnologias
+## Tech Stack
 
-- [Next.js 14+](https://nextjs.org/) com App Router
+- [Next.js 14+](https://nextjs.org/) with App Router
 - TypeScript
-- CSS puro (sem Tailwind ou bibliotecas de UI)
-- Fonte: [Roboto](https://fonts.google.com/specimen/Roboto) via Google Fonts
+- Plain CSS (no Tailwind or UI libraries)
+- Font: [Roboto](https://fonts.google.com/specimen/Roboto) via Google Fonts
 
 ---
 
-## Como rodar
+## Getting Started
 
-**Pré-requisitos:** Node.js 18+ e npm/yarn/pnpm instalado.
+**Requirements:** Node.js 18+ and npm/yarn/pnpm.
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/codeleap-network.git
+# 1. Clone the repository
+git clone https://github.com/your-username/codeleap-network.git
 cd codeleap-network
 
-# 2. Instale as dependências
+# 2. Install dependencies
 npm install
 
-# 3. Rode em modo desenvolvimento
+# 3. Start the development server
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ```bash
-# Build para produção
+# Production build
 npm run build
 npm start
 ```
 
 ---
 
-## Como usar
+## How to Use
 
-1. Acesse a aplicação e digite um nome de usuário para entrar
-2. Crie posts com título, conteúdo e imagem opcional
-3. Use `@username` no texto para mencionar alguém
-4. Curta posts com o botão de coração
-5. Clique em "comments" para expandir e comentar
-6. Use a barra de filtros para ordenar ou ver só seus posts
-7. Clique em **Logout** no header para sair
+1. Open the app and enter a username to sign in
+2. Create posts with a title, content, and an optional image
+3. Use `@username` in your text to mention someone
+4. Like posts with the heart button
+5. Click "comments" to expand and add a comment
+6. Use the sort/filter bar to reorder posts or view only yours
+7. Click **Logout** in the header to sign out
 
 ---
 
-## Armazenamento
+## Storage
 
-Todos os dados ficam no `localStorage` do navegador sob as chaves:
+All data is stored in the browser's `localStorage` under these keys:
 
-| Chave | Conteúdo |
+| Key | Content |
 |---|---|
-| `codeleap_username` | Nome do usuário logado |
-| `codeleap_posts` | Array de posts (JSON) |
-| `codeleap_comments` | Array de comentários (JSON) |
+| `codeleap_username` | Logged-in username |
+| `codeleap_posts` | Posts array (JSON) |
+| `codeleap_comments` | Comments array (JSON) |
 
-> **Atenção:** os dados são locais ao navegador. Limpar o `localStorage` ou trocar de dispositivo apaga tudo.
+> **Note:** data is local to the browser. Clearing `localStorage` or switching devices will erase everything.
 
 ---
 
-## Limitações conhecidas
+## Known Limitations
 
-- Imagens são salvas como base64 — posts com imagens grandes podem aproximar o limite de ~5MB do `localStorage`
-- Dados não são compartilhados entre dispositivos ou usuários diferentes
-- Mentions são apenas visuais — não há sistema de notificação real
+- Images are stored as base64 — posts with large images may approach the ~5MB `localStorage` limit
+- Data is not shared across devices or between different users
+- Mentions are visual only — there is no real notification system
